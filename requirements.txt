@@ -1,0 +1,11 @@
+asgiref==3.5.1
+Django==3.2
+django-pagedown==2.2.1
+django-sass-processor==1.2.1
+django-sass-processor-dart-sass==0.0.1
+django-taggit==3.0.0
+django-treebeard==4.5.1
+Pillow==9.1.0
+pytz==2022.1
+six==1.16.0
+sqlparse==0.4.2

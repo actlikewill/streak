@@ -1,0 +1,39 @@
+{% load sass_tags %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href="{% sass_src 'css/styles.scss' %}" />
+    <title>Streak | Month</title>
+</head>
+<body>
+
+    <div class="monthContainer">
+        <h1 class="month">{{ month }}</h1>
+    </div>
+
+
+
+<section class="monthGrid">
+
+    {% for day in days %}
+        <div class="day">
+        <div class="day_title">
+            <div class="day_dayname">{{ day.weekday }}</div>
+            <div class="day_number">{{ day.day }}</div>
+        </div>
+
+        <div class="streak_container">
+            {% for streak in day.streaks %}
+                <p class="streak" style="background-color: {{ streak.trackable.color }}">{{ streak.trackable.name }}</p>
+            {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</section>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+    background-color: #5584AC;
+    color: white;
+}
+
+.monthGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    width: 80%;
+    margin: 0 auto;
+}
+
+.day_title {
+    display: flex;
+    width: 100%;
+}
+
+.day {
+    /*margin: .1rem;*/
+    /* border: 2px solid #282828; */
+    /* height: fit-content; */
+    background-color: white;
+    border-radius: 4px;
+    margin: .3rem;
+}
+
+.monthContainer {
+    margin: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.month {
+    margin: 0 auto;
+}
+
+.day_dayname {
+    flex-grow: 1;
+    background-color: #de6b6b;
+    color: white;
+    font-weight: bold;
+    font-size: .8rem;
+}
+
+.day_number {
+    flex-grow: 1;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: #282828;
+    color: white;
+}
+
+.streak_container {
+}
+
+.streak {
+    padding: 0rem;
+    padding-left: .2rem;
+    font-size: .8rem;
+    margin: 0rem;
+    font-weight: bold;
+    color: white;
+}
+
+.streak {
+    p {
+        background: blue
+    }
+}
