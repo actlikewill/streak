@@ -8,12 +8,17 @@ class MonthView(TemplateView):
     template_name = 'streak/month.html'
 
     def get_context_data(self, **kwargs):
-        # params = self.request.GET
-        # print(params)
         context = super().get_context_data(**kwargs)
-        now = datetime.datetime.now()
-        cal = calendar.Calendar()
+        params = self.request.GET
+        params_month = params.get("month")
+        params_year = params.get("year")
+        if params_month:
+            year = params_year or datetime.datetime.now().year
+            now = datetime.datetime(int(year), int(params_month), 1)
+        else:
+            now = datetime.datetime.now()
 
+        cal = calendar.Calendar()
         weekdays = calendar.day_name
         months = calendar.month_name
         context['month'] = months[now.month]
@@ -21,7 +26,7 @@ class MonthView(TemplateView):
         days = []
         for day in cal.itermonthdates(now.year, now.month):
             weekday = weekdays[day.weekday()]
-            streaks = Streak.objects.filter(time__day=day.day)
+            streaks = Streak.objects.filter(time__day=day.day, time__month=now.month, time__year=now.year)
             d = {
                 'day': day.day,
                 'weekday': weekday,
@@ -31,6 +36,5 @@ class MonthView(TemplateView):
             days.append(d)
 
         context['days'] = days
-
 
         return context
