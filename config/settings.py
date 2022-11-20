@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'treebeard',
     'streak',
     'sass_processor',
+    'user',
 ]
 
 MIDDLEWARE = [

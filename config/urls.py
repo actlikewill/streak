@@ -22,5 +22,6 @@ app_name = 'config'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('streak/', include('streak.urls')),
-    path('', RedirectView.as_view(url="/streak/month/"))
+    path('', RedirectView.as_view(url="/streak/month/")),
+    path('user/', include('user.urls')),
 ]
