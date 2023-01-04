@@ -144,18 +144,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
 
-GOOGLE_API_KEY = ""
+GOOGLE_API_KEY = "AIzaSyAvXVOWu1qiDwbKMIhSTMCK9z5aV4f9w7I"
 
-RECAPTCHA_PUBLIC_KEY = ""
+RECAPTCHA_PUBLIC_KEY = "6Lfuha4fAAAAABS-Ya652tj7G3YchEuqBfHK25lO"
 
-RECAPTCHA_PRIVATE_KEY = ""
+RECAPTCHA_PRIVATE_KEY = "6Lfuha4fAAAAACSoL99_G-yePx04Casy7h4kMaaq"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 
-LOGIN_URL = "users:sign-in"
-LOGIN_REDIRECT_URL = "users:account"
-LOGOUT_REDIRECT_URL = "users:sign-in"
+LOGIN_URL = "user:sign-in"
+LOGIN_REDIRECT_URL = "bla"
+LOGOUT_REDIRECT_URL = "user:sign-in"
 
 BASE_COUNTRY = "UK"

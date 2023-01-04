@@ -29,7 +29,7 @@ class AccountView(TemplateView):
     """
     Generic FormView with our mixin to display user account page
     """
-    template_name = "users/account.html"
+    template_name = "user/account.html"
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
@@ -60,11 +60,9 @@ def profile_view(request):
 
     else:
 
-        context = {'form': form}
-        context['google_api_key'] = settings.GOOGLE_API_KEY
-        context['base_country'] = settings.BASE_COUNTRY
+        context = {'form': form, 'google_api_key': settings.GOOGLE_API_KEY, 'base_country': settings.BASE_COUNTRY}
 
-        return render(request, 'users/profile.html', context)
+        return render(request, 'user/profile.html', context)
 
 
 class SignUpView(AjaxFormMixin, FormView):
@@ -72,7 +70,7 @@ class SignUpView(AjaxFormMixin, FormView):
     Generic FormView with our mixin for user sign-up with reCAPTURE security
     """
 
-    template_name = "users/sign_up.html"
+    template_name = "user/sign_up.html"
     form_class = UserForm
     success_url = "/"
 
@@ -113,9 +111,9 @@ class SignInView(AjaxFormMixin, FormView):
     Generic FormView with our mixin for user sign-in
     """
 
-    template_name = "users/sign_in.html"
+    template_name = "user/sign_in.html"
     form_class = AuthForm
-    success_url = "/"
+    success_url = "/user"
 
     def form_valid(self, form):
         response = super(AjaxFormMixin, self).form_valid(form)
@@ -124,6 +122,7 @@ class SignInView(AjaxFormMixin, FormView):
             password = form.cleaned_data.get('password')
             # attempt to authenticate user
             user = authenticate(self.request, username=username, password=password)
+            print(user)
             if user is not None:
                 login(self.request, user, backend='django.contrib.auth.backends.ModelBackend')
                 result = "Success"
@@ -140,4 +139,4 @@ def sign_out(request):
     Basic view for user sign out
     """
     logout(request)
-    return redirect(reverse('users:sign-in'))
+    return redirect(reverse('user:sign-in'))

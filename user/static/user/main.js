@@ -8,7 +8,8 @@ function DirectionsToggle(){
   } else {
     dir_table.fadeOut()
     dir_table.attr("hidden", "hidden")
-    el.html('click <a href="javascript:void(0)" onclick="DirectionsToggle()">here')
+    el.html
+    ('click <a href="javascript:void(0)" onclick="DirectionsToggle()">here')
   }
 }
 

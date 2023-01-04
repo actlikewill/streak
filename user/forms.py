@@ -13,7 +13,7 @@ class UserForm(UserCreationForm):
                                  widget=forms.TextInput(attrs={'placeholder': '*Your first name..'}))
     last_name = forms.CharField(max_length=30, required=True,
                                 widget=forms.TextInput(attrs={'placeholder': '*Your last name..'}))
-    username = forms.EmailField(max_length=254, required=True,
+    username = forms.CharField(max_length=254, required=True,
                                 widget=forms.TextInput(attrs={'placeholder': '*Email..'}))
     password1 = forms.CharField(
         widget=forms.PasswordInput(attrs={'placeholder': '*Password..', 'class': 'password'}))
@@ -33,8 +33,8 @@ class AuthForm(AuthenticationForm):
     """
     Form that uses built-in AuthenticationForm to handel user auth
     """
-    username = forms.EmailField(max_length=254, required=True,
-                                widget=forms.TextInput(attrs={'placeholder': '*Email..'}))
+    username = forms.CharField(max_length=254, required=True,
+                               widget=forms.TextInput(attrs={'placeholder': '*Email..'}))
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'placeholder': '*Password..', 'class': 'password'}))
 
