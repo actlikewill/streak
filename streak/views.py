@@ -26,10 +26,11 @@ class MonthView(TemplateView):
         days = []
         for day in cal.itermonthdates(now.year, now.month):
             weekday = weekdays[day.weekday()]
-            streaks = Streak.objects.filter(time__day=day.day, time__month=now.month, time__year=now.year)
+            streaks = Streak.objects.filter(time__date=day)
             d = {
                 'day': day.day,
                 'weekday': weekday,
+                'month': months[day.month],
             }
             if streaks:
                 d['streaks'] = streaks
